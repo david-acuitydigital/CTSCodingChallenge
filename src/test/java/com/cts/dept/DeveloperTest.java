@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 
 /**
@@ -56,6 +57,16 @@ public class DeveloperTest {
         assertEquals("Expected employee to be removed from old manager", -1, expectedManager.getEmployees().indexOf(employee));
         assertEquals("Expected employee to be added to new manager", 0, newManager.getEmployees().indexOf(employee));
         assertEquals(newManager, employee.getManager());
+
+    }
+
+    @Test
+    public void testGetManager_ChangeManagerToNull() {
+        assertEquals(expectedManager, employee.getManager());
+
+        employee.setManager(null);
+        assertEquals("Expected employee to be removed from old manager", -1, expectedManager.getEmployees().indexOf(employee));
+        assertNull(employee.getManager());
 
     }
 }

@@ -3,6 +3,8 @@ package com.cts.dept;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 
@@ -68,6 +70,18 @@ public class ManagerTest extends DeveloperTest {
     }
 
     @Test
+    public void test_constructor_non_null_employees() {
+        IManager manager = null;
+        IEmployee developer = new Developer();
+        IEmployee qaTester = new QATester();
+        Collection<IEmployee> employees = new ArrayList<IEmployee>();
+        employees.add(developer);
+        employees.add(qaTester);
+        manager = new Manager("",employees);
+        assertEquals(2, manager.getEmployees().size());
+     }
+
+    @Test
     public void test_addEmployee_ChangeManager(){
         IManager oldManager = new Manager();
         IManager newManager = new Manager();
@@ -79,5 +93,19 @@ public class ManagerTest extends DeveloperTest {
         assertEquals(newManager, employee.getManager());
         assertEquals(0,newManager.getEmployees().indexOf(employee));
         assertEquals(-1,oldManager.getEmployees().indexOf(employee));
+    }
+
+    @Test
+    public void test_addEmployee_Null() {
+        IManager manager = new Manager();
+        manager.addEmployee(null);
+        assertEquals(0,manager.getEmployees().size());
+    }
+
+    @Test
+    public void test_removeEmployee_Null() {
+        IManager manager = new Manager();
+        manager.removeEmployee(null);
+        assertEquals(0,manager.getEmployees().size());
     }
 }

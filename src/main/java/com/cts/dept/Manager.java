@@ -20,7 +20,7 @@ public class Manager extends AbstractEmployee implements IManager {
         setTitle("Manager");
         setName(name);
         if (employees != null && employees.size() > 0) {
-            employees.addAll(employees);
+            this.employees.addAll(employees);
         }
     }
 
@@ -49,6 +49,7 @@ public class Manager extends AbstractEmployee implements IManager {
             if(employee.getManager() != null){
                 employee.getManager().removeEmployee(employee);
             }
+
             employees.add(employee);
 
             // You need to check if the manager is already set to this manager,
@@ -56,6 +57,7 @@ public class Manager extends AbstractEmployee implements IManager {
             if(this != employee.getManager()) {
                 employee.setManager(this);
             }
+
         }
     }
 
@@ -67,6 +69,7 @@ public class Manager extends AbstractEmployee implements IManager {
     public void removeEmployee(IEmployee employee) {
         if(employee != null) {
             employees.remove(employee);
+            employee.clearManager();
         }
     }
 

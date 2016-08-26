@@ -15,6 +15,11 @@ public class QATester extends AbstractEmployee {
         setTitle("QATester");
         setName(name);
     }
+
+    /**
+     * Gets the QA testers cost.
+     * @return
+     */
     public BigDecimal getCost() {
         return new BigDecimal("500");
     }

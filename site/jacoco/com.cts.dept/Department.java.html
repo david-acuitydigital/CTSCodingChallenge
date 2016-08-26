@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Department.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CTSCodingChallenge</a> &gt; <a href="index.source.html" class="el_package">com.cts.dept</a> &gt; <span class="el_source">Department.java</span></div><h1>Department.java</h1><pre class="source lang-java linenums">package com.cts.dept;
+
+import java.math.BigDecimal;
+
+/**
+ * The concrete department class.
+ *
+ * Created by David on 8/25/2016.
+ */
+<span class="fc" id="L10">public class Department implements IDepartment {</span>
+    private String name;
+    private IManager manager;
+
+    /**
+     * Sets the name of the department.
+     * @param name
+     * @return
+     */
+    public void setName(String name) {
+<span class="fc" id="L20">        this.name = name;</span>
+<span class="fc" id="L21">    }</span>
+
+    /**
+     * Sets the department manager.
+     *
+     * @param manager
+     */
+    public void setManager(IManager manager) {
+<span class="fc" id="L29">        this.manager = manager;</span>
+<span class="fc" id="L30">    }</span>
+
+    /**
+     * Gets the name of the department.
+     *
+     * @return
+     */
+    public String getName() {
+<span class="fc" id="L38">        return name;</span>
+    }
+
+    /**
+     * Gets the department manager.
+     *
+     * @return
+     */
+    public IManager getManager() {
+<span class="fc" id="L47">        return manager;</span>
+    }
+
+    /**
+     * Gets the cost of the department manager and his staff.
+     *
+     * @return
+     */
+    public BigDecimal getCost() {
+<span class="fc" id="L56">        BigDecimal cost = BigDecimal.ZERO;</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (manager != null) {</span>
+<span class="fc" id="L58">            cost = manager.getCost();</span>
+        }
+<span class="fc" id="L60">        return cost;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

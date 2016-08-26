@@ -2,6 +2,9 @@ package com.cts.dept;
 
 import java.math.BigDecimal;
 
+/**
+ * Employee's interface.
+ */
 public interface IEmployee {
 
     /**
@@ -17,6 +20,13 @@ public interface IEmployee {
      * @return
      */
     void setManager(IManager manager);
+
+    /**
+     * Clears the employees manager
+     *
+     * @return
+     */
+    void clearManager();
 
     /**
      * Gets the name of the employee.

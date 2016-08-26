@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AbstractEmployee.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">CTSCodingChallenge</a> &gt; <a href="index.source.html" class="el_package">com.cts.dept</a> &gt; <span class="el_source">AbstractEmployee.java</span></div><h1>AbstractEmployee.java</h1><pre class="source lang-java linenums">package com.cts.dept;
+
+/**
+ * The base employee class.
+ *
+ * Created by David on 8/25/2016.
+ */
+<span class="fc" id="L8">public abstract class AbstractEmployee implements IEmployee {</span>
+    private IManager manager;
+    private String name;
+    private String title;
+
+    /**
+     * It sets the manager, ensuring that this employee only exists in manager's heirarchy.
+     * @param manager
+     */
+    public void setManager(IManager manager) {
+<span class="fc bfc" id="L18" title="All 2 branches covered.">        if (this.manager != null) {</span>
+<span class="fc" id="L19">            this.manager.removeEmployee(this);</span>
+        }
+<span class="pc bpc" id="L21" title="1 of 6 branches missed.">        if (manager != null &amp;&amp; !manager.equals(this.manager) &amp;&amp; manager.getEmployees().indexOf(this) &lt; 0) {</span>
+<span class="fc" id="L22">            manager.addEmployee(this);</span>
+        }
+<span class="fc" id="L24">        this.manager = manager;</span>
+
+<span class="fc" id="L26">    }</span>
+
+    /**
+     * Clears the employees manager
+     */
+    public void clearManager(){
+<span class="fc" id="L32">        this.manager = null;</span>
+<span class="fc" id="L33">    }</span>
+
+    /**
+     * Sets the employee's name.
+     *
+     * @param name
+     */
+    public void setName(String name) {
+<span class="fc" id="L41">        this.name = name;</span>
+<span class="fc" id="L42">    }</span>
+
+    /**
+     * Sets the employee's title.
+     * @param title
+     */
+    public void setTitle(String title) {
+<span class="fc" id="L49">        this.title = title;</span>
+<span class="fc" id="L50">    }</span>
+
+    /**
+     * Gets the employees manager.
+     *
+     * @return
+     */
+    public IManager getManager() {
+<span class="fc" id="L58">        return manager;</span>
+    }
+
+    /**
+     * Gets the employees name.
+     *
+     * @return
+     */
+    public String getName() {
+<span class="fc" id="L67">        return name;</span>
+    }
+
+    /**
+     * Gets the employee's title.
+     * @return
+     */
+    public String getTitle() {
+<span class="fc" id="L75">        return title;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
