@@ -51,15 +51,9 @@ public class Manager extends AbstractEmployee implements IManager {
             }
 
 <span class="fc" id="L53">            employees.add(employee);</span>
-
-            // You need to check if the manager is already set to this manager,
-            // otherwise you get into an infinite loop situation.
-<span class="pc bpc" id="L57" title="1 of 2 branches missed.">            if(this != employee.getManager()) {</span>
-<span class="fc" id="L58">                employee.setManager(this);</span>
-            }
-
+<span class="fc" id="L54">            employee.setManager(this);</span>
         }
-<span class="fc" id="L62">    }</span>
+<span class="fc" id="L56">    }</span>
 
     /**
      * Removes an employee
@@ -67,11 +61,11 @@ public class Manager extends AbstractEmployee implements IManager {
      * @param employee
      */
     public void removeEmployee(IEmployee employee) {
-<span class="fc bfc" id="L70" title="All 2 branches covered.">        if(employee != null) {</span>
-<span class="fc" id="L71">            employees.remove(employee);</span>
-<span class="fc" id="L72">            employee.clearManager();</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        if(employee != null) {</span>
+<span class="fc" id="L65">            employees.remove(employee);</span>
+<span class="fc" id="L66">            employee.clearManager();</span>
         }
-<span class="fc" id="L74">    }</span>
+<span class="fc" id="L68">    }</span>
 
     /**
      * Returns a list of employees
@@ -79,7 +73,7 @@ public class Manager extends AbstractEmployee implements IManager {
      * @return
      */
     public List&lt;IEmployee&gt; getEmployees() {
-<span class="fc" id="L82">        return new ArrayList&lt;IEmployee&gt;(employees);</span>
+<span class="fc" id="L76">        return new ArrayList&lt;IEmployee&gt;(employees);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

@@ -51,13 +51,7 @@ public class Manager extends AbstractEmployee implements IManager {
             }
 
             employees.add(employee);
-
-            // You need to check if the manager is already set to this manager,
-            // otherwise you get into an infinite loop situation.
-            if(this != employee.getManager()) {
-                employee.setManager(this);
-            }
-
+            employee.setManager(this);
         }
     }
 

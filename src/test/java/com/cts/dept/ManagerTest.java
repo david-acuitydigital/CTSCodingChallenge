@@ -17,7 +17,7 @@ public class ManagerTest extends DeveloperTest {
         this.expectedCost = new BigDecimal("300");
         this.expectedTitle = "Manager";
         this.expectedName = "ManagerA";
-        this.employee = new Manager(expectedName, null);
+        this.employee = new Manager(expectedName, new ArrayList<IEmployee>());
         ((AbstractEmployee) this.employee).setManager(expectedManager);
     }
 
@@ -79,6 +79,9 @@ public class ManagerTest extends DeveloperTest {
         employees.add(qaTester);
         manager = new Manager("",employees);
         assertEquals(2, manager.getEmployees().size());
+        employees.clear();
+        manager = new Manager("",employees);
+        assertEquals(0, manager.getEmployees().size());
      }
 
     @Test
